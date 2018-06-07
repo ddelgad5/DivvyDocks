@@ -18,6 +18,12 @@ html {
   line-height: 1.09091em; /* 24/22 = 1.09091 */
   font-weight: regular;
   color: #444444;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+body{
+  padding-top: 3.27273rem; /* 72/22 = 3.27273 */
 }
 
 h1 {
@@ -27,7 +33,14 @@ h1 {
   font-weight: bold;
   background-color: #3db7e4;
   color: #ffffff;
+  /* Fill with blue banner */
+  position: absolute;
+  padding-left: 0.38198em; /* 22/57.594 = 0.38198 */
+  width: 100vw;
+  left: -0.38198em; /* 22/57.594 = 0.38198 */
+  top: 0;
 }
+
 
 h2 {
   font-family: 'Roboto', sans-serif;
