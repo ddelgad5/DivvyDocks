@@ -38,7 +38,12 @@ app.get('/', function(getRequest, getResponse) { //  Respond to GET request
   req(options)
     .then( function(rData) {
       console.log("Divvy data received");
-      console.log(rData[1]);
+      console.log(rData.executionTime);
+      fs.writeFile('stations.json', JSON.stringify(rData), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
       getResponse.send(rData);
     })
     .catch( function(err) {
