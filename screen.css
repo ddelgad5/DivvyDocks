@@ -7,3 +7,32 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /* stylelint-enable */
 
 /* Begin site styles below */
+/* 22 px base on golden section ratio
+http://www.modularscale.com/?22&px&1.618 */
+
+html {
+  font-size: 1.375em; /* 22/16 = 1.375 */
+  font-family: 'Lato', sans-serif;
+  color: #444444;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 57.594px;
+  font-weight: bold;
+  background-color: #3db7e4;
+  color: #ffffff;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 35.596px;
+  font-weight: medium;
+  color: #3db7e4;
+}
+
+.last-time {  /* for captions */
+  font-family: 'Roboto', sans-serif;
+  font-size: 13.597px;
+  font-weight: thin;
+}
