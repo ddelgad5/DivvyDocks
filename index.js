@@ -8,7 +8,8 @@ const options = {
   url:"https://feeds.divvybikes.com/stations/stations.json",
   headers: {
     'User-Agent': 'Request-Promise'
-  }
+  },
+  json: true
 };
 
 app.get('/', function(req, res) { //  Respond to GET request
