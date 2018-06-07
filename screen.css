@@ -8,7 +8,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 /* Begin site styles below */
 /* 22 px base on golden section ratio
-http://www.modularscale.com/?22&px&1.618 */
+http://www.modularscale.com/?22&px&1.618
+Lato and Roboto fonts are being used
+Official Divvy blue and black being used */
 
 html {
   font-family: 'Lato', sans-serif;
