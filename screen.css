@@ -12,8 +12,8 @@ http://www.modularscale.com/?22&px&1.618
 Lato and Roboto fonts are being used
 Official Divvy blue and black being used */
 
-html {
-  font-family: 'Lato', sans-serif;
+html { /* stylelint-disable-line */
+  font-family: Lato, sans-serif;
   font-size: 1.375em; /* 22/16 = 1.375 */
   line-height: 1.09091em; /* 24/22 = 1.09091 */
   font-weight: regular;
@@ -22,12 +22,12 @@ html {
   padding-right: 1em;
 }
 
-body{
+body { /* stylelint-disable-line */
   padding-top: 3.27273rem; /* 72/22 = 3.27273 */
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 2.61791em; /* 57.594/22 = 2.61791 */
   line-height: 1.25013em; /* 72/57.594 = 1.25013 */
   font-weight: bold;
@@ -45,7 +45,7 @@ h1 {
 
 
 h2 {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 1.618em; /* 35.596/22 = 1.618 */
   line-height: 1.34847em; /* 48/35.596 = 1.34847 */
   font-weight: medium;
@@ -53,7 +53,7 @@ h2 {
 }
 
 .last-time {  /* for captions */
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 0.61805em; /* 13.597/22 = 0.61805 */
   line-height: 1.7651em; /* 24/13.597 = 1.7651 */
   font-weight: thin;
