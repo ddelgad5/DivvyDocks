@@ -2,8 +2,7 @@
 
 const express = require('express');
 const app = express();
-const fs = require('fs');  //  Require the file system
-const req = require('request-promise-native');  //  Require the request-promise-native package
+const req = require('request-promise-native'); //  Require the request-promise-native package
 const options = {
   url:"https://feeds.divvybikes.com/stations/stations.json",
   headers: {
@@ -21,7 +20,7 @@ app.get('/', function(getRequest, getResponse) { //  Respond to GET request
       getResponse.send(rData);
     })
     .catch( function(err) {
-      console.log("Something went wrong\n",err);
+      console.log("Something went wrong\n", err);
     });
 });
 
