@@ -12,19 +12,17 @@ const options = {
   json: true
 };
 
-app.get('/', function(req, res) { //  Respond to GET request
+app.get('/', function(getRequest, getResponse) { //  Respond to GET request
   // res.send('Hello World!');  //  Test message
   console.log("Divvy API data requested");
-  req(options) // Divvy API call
-  .then(
-    function(results) {
-      res.send(results);
-      console.log('Divvy request successful!');
-    }
-  )
-  .catch(function(err) {
-    console.log(err);
-  });
+  req(options)
+    .then( function(rData) {
+      console.log("Divvy data received");
+      getResponse.send(rData);
+    })
+    .catch( function(err) {
+      console.log("Something went wrong\n",err);
+    });
 });
 
 app.listen(8080, () => console.log('Example app listening on port 8080!'));
