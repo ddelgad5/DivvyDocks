@@ -1,8 +1,60 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* stylelint-disable*/
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section{display:block}html{line-height:1}body{line-height:inherit}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+/* stylelint-enable */
+
+/* Begin site styles below */
+/* 22 px base on golden section ratio
+http://www.modularscale.com/?22&px&1.618
+Lato and Roboto fonts are being used
+Official Divvy blue and black being used */
+
+html { /* stylelint-disable-line */
+  font-family: Lato, sans-serif;
+  font-size: 1.375em; /* 22/16 = 1.375 */
+  line-height: 1.09091em; /* 24/22 = 1.09091 */
+  font-weight: regular;
+  color: #444444;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-a {
-  color: #00B7FF;
+body { /* stylelint-disable-line */
+  padding-top: 3.27273rem; /* 72/22 = 3.27273 */
+}
+
+h1 {
+  font-family: Roboto, sans-serif;
+  font-size: 2.61791em; /* 57.594/22 = 2.61791 */
+  line-height: 1.25013em; /* 72/57.594 = 1.25013 */
+  font-weight: bold;
+  background-color: #3db7e4;
+  color: #ffffff;
+  /* Fill with blue banner */
+  position: absolute;
+  padding-left: 0.38198em; /* 22/57.594 = 0.38198 */
+  width: 100vw;
+  left: -0.38198em; /* 22/57.594 = 0.38198 */
+  top: 0;
+  /* Remove <a> styling */
+  text-decoration: none;
+}
+
+
+h2 {
+  font-family: Roboto, sans-serif;
+  font-size: 1.618em; /* 35.596/22 = 1.618 */
+  line-height: 1.34847em; /* 48/35.596 = 1.34847 */
+  font-weight: medium;
+  color: #3db7e4;
+}
+
+.last-time {  /* for captions */
+  font-family: Roboto, sans-serif;
+  font-size: 0.61805em; /* 13.597/22 = 0.61805 */
+  line-height: 1.7651em; /* 24/13.597 = 1.7651 */
+  font-weight: thin;
 }
