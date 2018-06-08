@@ -35,8 +35,8 @@ h1 {
   color: #ffffff;
   /* Fill with blue banner */
   position: absolute;
+  width: calc(100vw - 0.38198em);
   padding-left: 0.38198em; /* 22/57.594 = 0.38198 */
-  width: 100vw;
   left: -0.38198em; /* 22/57.594 = 0.38198 */
   top: 0;
   /* Remove <a> styling */
