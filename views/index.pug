@@ -12,16 +12,21 @@ html.no-js(lang='en-US')
       a(href='/')
         h1 DivvyDocks
     main
-      h2 Buckingham Fountain
-      p
-        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-        | eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        | minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        | ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        | velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        | cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-        | est laborum.
       sub.last-time Last Update: #{syncTime}
+      table.divvy
+        thead
+          tr
+            th Station
+            th Available Docks
+            th Available Bikes
+            th Total Docks
+        tbody
+          for station in stations
+            tr
+              th #{station.stationName}
+              th #{station.availableDocks}
+              th #{station.availableBikes}
+              th #{station.totalDocks}
     footer
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
     script(src='/javascripts/site.js')
