@@ -60,6 +60,7 @@ h2, thead {
   padding: inherit;
 }
 
+/* Table styling */
 table {
   font-size: 1rem;
   line-height: 24px;
@@ -71,11 +72,16 @@ tbody tr * {
   padding-bottom: 0.5em;
 }
 
-tbody tr th:first-child {
+tbody tr td, thead tr th {
   padding-left: 0.18182em; /* 4/22 = 0.18182 */
+  padding-right: 0.18182em; /* 4/22 = 0.18182 */
 }
 
 tbody tr:nth-child(even) { /* alternate row colors */
   background-color: #3db7e4;
   color: #ffffff;
+}
+
+#divvy-small {
+  display: none;
 }
