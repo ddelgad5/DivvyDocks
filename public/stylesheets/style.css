@@ -44,7 +44,7 @@ h1 {
 }
 
 
-h2 {
+h2, thead {
   font-family: Roboto, sans-serif;
   font-size: 1.618em; /* 35.596/22 = 1.618 */
   line-height: 1.34847em; /* 48/35.596 = 1.34847 */
@@ -52,9 +52,24 @@ h2 {
   color: #3db7e4;
 }
 
-.last-time {  /* for captions */
+.last-time {  /* for timestamp */
   font-family: Roboto, sans-serif;
   font-size: 0.61805em; /* 13.597/22 = 0.61805 */
   line-height: 1.7651em; /* 24/13.597 = 1.7651 */
   font-weight: thin;
+}
+
+table {
+  font-size: 1rem;
+  line-height: 24px;
+  text-align: left;
+}
+
+tbody tr th:first-child {
+  padding-left: 0.18182em; /* 4/22 = 0.18182 */
+}
+
+tbody tr:nth-child(even) { /* alternate row colors */
+  background-color: #3db7e4;
+  color: #ffffff;
 }
