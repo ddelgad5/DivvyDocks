@@ -14,18 +14,23 @@ html.no-js(lang='en-US')
       sub.last-time Last Update: #{syncTime}
       table.divvy
         thead
-          tr
+          tr#divvy-headers
             th Station
             th Empty
             th Taken
             th Total
+          tr#divvy-small
+            th Site
+            th E
+            th T
+            th A
         tbody
           for station in stations
             tr
-              th #{station.stationName}
-              th #{station.availableDocks}
-              th #{station.availableBikes}
-              th #{station.totalDocks}
+              td #{station.stationName}
+              td #{station.availableDocks}
+              td #{station.availableBikes}
+              td #{station.totalDocks}
     footer
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
     script(src='/javascripts/site.js')
