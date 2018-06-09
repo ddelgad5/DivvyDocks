@@ -35,9 +35,9 @@ h1 {
   color: #ffffff;
   /* Fill with blue banner */
   position: absolute;
-  width: calc(100vw - 0.38198em);
+  width: calc(100% - 0.38198em);
+  left: 0;
   padding-left: 0.38198em; /* 22/57.594 = 0.38198 */
-  left: -0.38198em; /* 22/57.594 = 0.38198 */
   top: 0;
   /* Remove <a> styling */
   text-decoration: none;
@@ -57,12 +57,18 @@ h2, thead {
   font-size: 0.61805em; /* 13.597/22 = 0.61805 */
   line-height: 1.7651em; /* 24/13.597 = 1.7651 */
   font-weight: thin;
+  padding: inherit;
 }
 
 table {
   font-size: 1rem;
   line-height: 24px;
   text-align: left;
+}
+
+tbody tr * {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 tbody tr th:first-child {
