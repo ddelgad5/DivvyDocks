@@ -14,13 +14,13 @@ router.get('/', function(req, res, next) {
   rpn(options).then( function(results) {
     console.log("Divvy API queried");
     var listChunks = []; // create array to send to template
-    for (let i=0; i in results.stationBeanList; i++) { // iterate through the json file
+    for (const station of results.stationBeanList) { // iterate through the json file
       // console.log(results.stationBeanList[i].stationName);
       var chunk = { // create chunk object to hold individual data
-        stationName: results.stationBeanList[i].stationName,
-        availableDocks: results.stationBeanList[i].availableDocks,
-        availableBikes: results.stationBeanList[i].availableBikes,
-        totalDocks: results.stationBeanList[i].totalDocks
+        stationName: station.stationName,
+        availableDocks: station.availableDocks,
+        availableBikes: station.availableBikes,
+        totalDocks: station.totalDocks
       }
       listChunks.push(chunk);
     }
