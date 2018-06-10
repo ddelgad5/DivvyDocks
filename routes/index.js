@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var rpn = require('request-promise-native')
-var options = {
+const express = require('express');
+const router = express.Router();
+const rpn = require('request-promise-native')
+const options = {
   url:"https://feeds.divvybikes.com/stations/stations.json",
   headers: {
     'User-Agent': 'Request-Promise'
