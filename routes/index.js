@@ -16,13 +16,15 @@ router.get('/', function(req, res, next) {
     var listChunks = []; // create array to send to template
     for (const station of results.stationBeanList) { // iterate through the json file
       // console.log(results.stationBeanList[i].stationName);
-      var chunk = { // create chunk object to hold individual data
-        stationName: station.stationName,
-        availableDocks: station.availableDocks,
-        availableBikes: station.availableBikes,
-        totalDocks: station.totalDocks
+      if (station.postalCode == '60616') {  // Look for stations around IIT
+        let chunk = { // create chunk object to hold individual data
+          stationName: station.stationName,
+          availableDocks: station.availableDocks,
+          availableBikes: station.availableBikes,
+          totalDocks: station.totalDocks
+        }
+        listChunks.push(chunk);
       }
-      listChunks.push(chunk);
     }
     res.render('index', { syncTime: Date(results.executionTime), stations: listChunks });
   });
