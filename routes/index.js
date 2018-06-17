@@ -22,13 +22,34 @@ router.get('/', function(req, res) {
           stationName: station.stationName,
           availableDocks: station.availableDocks,
           availableBikes: station.availableBikes,
-          totalDocks: station.totalDocks
-        }
+          totalDocks: station.totalDocks,
+          lat: station.langitude,
+          long: station.longitude
+        };
         listChunks.push(chunk);
       }
     }
+    let coord = {
+      lat: 41.834266, // IIT Mies Campus coordinates
+      long: -87.627628 // IIT Mies Campus coordinates
+    };
+    chunkSort(listChunks, coord);
     res.render('index', { syncTime: Date(results.executionTime), stations: listChunks });
   });
 });
 
 module.exports = router;
+
+const chunkSort = (list, coord) => {
+  let phoneHome = Math.sqrt((coord.lat * coord.lat + coord.long * coord.long));
+  // console.log(phoneHome);
+  for (let i=0; i < list.length; i++) {
+    let selection = list[i];
+    target = 0;
+    console.log(n);
+    for (let x=i+1; x < list.length; i++) {
+      let next = list[x];
+
+    }
+  }
+};
