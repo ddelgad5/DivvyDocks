@@ -9,16 +9,16 @@ html.no-js(lang='en-US')
   body
     header
       a(href='/')
-        h1 DivvyDocks (IIT)
+        h1 Divvy Docks
     main
       sub.last-time Last Update: #{syncTime}
       table.divvy
         thead
           tr#divvy-headers
-            th Station
-            th Empty
-            th Taken
-            th Total
+            th.name Station
+            th.empty Empty
+            th.taken Taken
+            th.total Total
           tr#divvy-small
             th Site
             th E
@@ -27,10 +27,10 @@ html.no-js(lang='en-US')
         tbody
           for station in stations
             tr
-              td #{station.stationName}
-              td #{station.availableDocks}
-              td #{station.availableBikes}
-              td #{station.totalDocks}
+              td.name #{station.stationName}
+              td.empty #{station.availableDocks}
+              td.taken #{station.availableBikes}
+              td.total #{station.totalDocks}
     footer
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
     script(src='/javascripts/site.js')
