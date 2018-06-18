@@ -23,7 +23,7 @@ html { /* stylelint-disable-line */
 }
 
 body { /* stylelint-disable-line */
-  padding-top: 3.27273rem; /* 72/22 = 3.27273 */
+  padding-top: 6.54545rem; /* 144/22 = 6.54545 */
 }
 
 h1 {
@@ -82,6 +82,33 @@ tbody tr:nth-child(even) { /* alternate row colors */
   color: #ffffff;
 }
 
-#divvy-small {
+/* Specific Size Styling */
+#divvy-small { /* Hide smaller version of headers */
   display: none;
+}
+
+.hidden { /* Create general hidden class */
+  display: none;
+}
+
+.total { /* hide total column for smaller screens */
+  display: none;
+}
+
+@media screen and (min-width: 357px) {
+  body { /* stylelint-disable-line */
+    padding-top: 3.27273rem; /* 72/22 = 3.27273 */
+  }
+}
+
+@media screen and (min-width: 519px) {
+  .name {
+    width: 49.03661vw;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .name {
+    width: 380px;
+  }
 }
