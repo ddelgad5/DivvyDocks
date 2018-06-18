@@ -34,7 +34,7 @@ router.get('/', function(req, res) {
       long: -87.627628 // IIT Mies Campus coordinates
     };
     chunkSort(listChunks, coord);
-    listChunks = chunkSnip(listChunks,10);
+    listChunks = chunkSnip(listChunks, 10);
     res.render('index', { syncTime: Date(results.executionTime), stations: listChunks });
   });
 });
@@ -43,7 +43,7 @@ module.exports = router;
 
 const chunkSort = (list, coord) => {
   for (let x of list) { // Calculate distance for every station
-    x.distance = Math.sqrt(Math.pow((x.lat - coord.lat),2) + Math.pow((x.long - coord.long),2)); // get direct distance from coord
+    x.distance = Math.sqrt(Math.pow((x.lat - coord.lat), 2) + Math.pow((x.long - coord.long), 2)); // get direct distance from coord
   }
   for (let i=0; i < list.length; i++) {
     let target = i; // Current spot up for grabs in the array
@@ -63,7 +63,7 @@ const chunkSnip = (list, newSize) => {
   if (list.length < newSize) {
     return list;
   }
-  while (list.length != newSize) {
+  while (list.length !== newSize) {
     list.pop();
   }
   return list;
