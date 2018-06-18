@@ -9,6 +9,7 @@ const options = {
   },
   json: true
 };
+const googleMaps = 'https://www.google.com/maps/search/?api=1&query=';
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -26,6 +27,7 @@ router.get('/', function(req, res) {
           lat: station.latitude,
           long: station.longitude
         };
+        console.log(chunk.url);
         listChunks.push(chunk);
       }
     }
@@ -65,6 +67,10 @@ const chunkSnip = (list, newSize) => {
   }
   while (list.length !== newSize) {
     list.pop();
+  }
+  for (let x of list) {
+    x.url = googleMaps + x.lat + ',' + x.long;
+    // console.log(x.url);
   }
   return list;
 };

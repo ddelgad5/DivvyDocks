@@ -27,7 +27,8 @@ html.no-js(lang='en-US')
         tbody
           for station in stations
             tr
-              td.name #{station.stationName}
+              td.name
+                a(href='' + station.url) #{station.stationName}
               td.empty #{station.availableDocks}
               td.taken #{station.availableBikes}
               td.total #{station.totalDocks}
