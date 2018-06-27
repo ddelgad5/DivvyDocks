@@ -8,7 +8,10 @@ var getCoord = function() {
   if (!navigator.geolocation) {
     console.log("Geolocation is not supported");
   }
-
+  var coord = {
+    lat: 41.834266, // IIT Mies Campus coordinates
+    long: -87.627628 // IIT Mies Campus coordinates
+  };
   var options = {
     enableHighAccuracy: true,
     timeout: 500, // 500 ms = 0.5 s
@@ -16,11 +19,15 @@ var getCoord = function() {
   };
 
   function success(position) {
-    console.log(position); // debug output
+    // console.log(position); // debug output
+    coord.lat = position.coords.latitude;
+    coord.long = position.coords.longitude;
+    console.log("Found coordinates:", coord.lat, ",", coord.long);
   }
 
   function error() {
     console.log("Something went wrong");
+    console.log("Using IIT Coordinates");
   }
 
   navigator.geolocation.getCurrentPosition(success, error, options);
