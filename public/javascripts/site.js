@@ -22,17 +22,22 @@ var getCoord = function() {
     // console.log(position); // debug output
     coord.lat = position.coords.latitude;
     coord.long = position.coords.longitude;
-    console.log("Found coordinates:", coord.lat, ",", coord.long);
+    // console.log("Found coordinates:", coord.lat, ",", coord.long);
+    return coord;
   }
 
   function error() {
     console.log("Something went wrong");
     console.log("Using IIT Coordinates");
+    return coord;
   }
 
   navigator.geolocation.getCurrentPosition(success, error, options);
 }
 $(document).ready(function() {
   console.log("Webpage loaded");
-  getCoord();
+  var coord = getCoord();
+  $.get("/",coord, function(data) {
+    console.log(Fetched page with coordinates);
+  });
 });
