@@ -13,7 +13,7 @@ const options = {
 /* GET home page. */
 router.get('/', function(req, res) {
   console.log("Page queried");
-  console.log(req);
+  // console.log(req);
   rpn(options).then( function(results) {
     // console.log("Divvy API queried");
     let coord = calc.getCoord();
