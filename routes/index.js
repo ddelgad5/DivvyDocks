@@ -12,7 +12,8 @@ const options = {
 };
 /* GET home page. */
 router.get('/', function(req, res) {
-
+  console.log("Page queried");
+  console.log(req);
   rpn(options).then( function(results) {
     // console.log("Divvy API queried");
     let coord = calc.getCoord();
@@ -35,6 +36,7 @@ router.get('/', function(req, res) {
     listChunks = calc.chunkSnip(listChunks, 10);
     res.render('index', { syncTime: Date(results.executionTime), stations: listChunks });
   });
+  return req;
 });
 
 module.exports = router;

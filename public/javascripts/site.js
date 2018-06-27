@@ -38,6 +38,7 @@ $(document).ready(function() {
   console.log("Webpage loaded");
   var coord = getCoord();
   $.get("/",coord, function(data) {
-    console.log(Fetched page with coordinates);
+    console.log("Fetched page with coordinates");
+    console.log(data);
   });
 });
