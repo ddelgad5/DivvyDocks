@@ -14,7 +14,7 @@ var getCoord = function() {
   };
   var options = {
     enableHighAccuracy: true,
-    timeout: 3000, // 3000 ms = 3.0 s
+    timeout: Infinity, // 3000 ms = 3.0 s
     maximumAge: 10000 // 10000 ms = 10 s
   };
 
