@@ -36,7 +36,7 @@ router.get('/', function(req, res) {
     listChunks = calc.chunkSnip(listChunks, 10);
     res.render('index', { syncTime: Date(results.executionTime), stations: listChunks });
   });
-  return req.coord;
+  res = req.data;
 });
 
 module.exports = router;
