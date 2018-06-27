@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const rpn = require('request-promise-native');
-const calc = require('../lib/sort.js');
+const calc = require('../lib/calc.js');
 const options = {
   url:"https://feeds.divvybikes.com/stations/stations.json",
   headers: {
