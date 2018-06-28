@@ -1,6 +1,6 @@
 'use strict';
 const express = require('express');
-const router = express();
+const router = express.Router();
 
 router.post('/location', function(req,res) {
   console.log("POST recieved");
