@@ -37,7 +37,7 @@ var getCoord = function() {
 $(document).ready(function() {
   console.log("Webpage loaded");
   var coord = getCoord();
-  $.post("/", coord, function(data) {
+  $.post("/location", coord, function(data) {
     console.log("POST succeeded");
   }); // Fetch page with coordinates
 });
