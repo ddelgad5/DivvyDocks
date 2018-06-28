@@ -11,6 +11,10 @@ html.no-js(lang='en-US')
       a(href='/')
         h1 Divvy Docks
     main
+      form(method='POST' action='/location')
+        input(type='number' name='zip' value='60616')
+        button(type='submit')
+          search
       sub.last-time Last Update: #{syncTime}
       table.divvy
         thead
