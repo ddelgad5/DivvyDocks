@@ -2,10 +2,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/location', function(req,res) {
+router.post('/', function(req,res) {
   console.log("POST recieved");
-  console.log(req.params);
-  res.send(req.params);
+  console.log(req.body);
+  res.send(req.body);
 });
 
 module.exports = router;
