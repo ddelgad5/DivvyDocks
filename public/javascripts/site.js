@@ -12,6 +12,7 @@ var locationObject = {
   }
 };
 
+// console.log("Outermost scope",locationObject);
 var getCoord = function() {
   if (!navigator.geolocation) {
     console.log("Geolocation is not supported");
@@ -25,8 +26,9 @@ var getCoord = function() {
 
   function success(position) {
     // console.log(coord);
+    // console.log(locationObject);
     // console.log(position); // debug output
-    locationOject.coord.lat = position.coords.latitude;
+    locationObject.coord.lat = position.coords.latitude;
     locationObject.coord.long = position.coords.longitude;
     // console.log(coord);
     // console.log("Found coordinates:", coord.lat, ",", coord.long);
@@ -42,23 +44,30 @@ var getCoord = function() {
   navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-$('#zip-button').on('click', function(e) {
-  console.log('Zip button cliked');
-  console.log($('#zip-box').val());
-  locationObject.zip = $('#zip-box').val();
-  $.post("/location", locationObject, function(data) {
-    console.log("POST succeeded");
-    console.log(data);
+$('#zip-button').on('click', function(e) { // Send zip when button is clicked
+  // console.log('Zip button clicked');
+  var zip = $('#zip-box').val();
+  // console.log(zip, zip.toString().length);
+  if (zip.toString().length == 5) {
+    locationObject.zip = zip;
+    $.post("/location", locationObject, function(data) {
+      // console.log("POST succeeded");
+      // console.log(data);
+    });
+  }
+  else {
+    console.log("Invalid zip code");
+  }
   e.preventDefault();
 });
 
-$(document).ready(function() {
-  console.log("Webpage loaded");
+$(document).ready(function() { // Send location when page loads
+  // console.log("Webpage loaded");
   getCoord();
   // console.log(coord);
   // console.log(coord);
   $.post("/location", locationObject, function(data) {
-    console.log("POST succeeded");
-    console.log(data);
+    // console.log("POST succeeded");
+    // console.log(data);
   }); // Fetch page with coordinates
 });
