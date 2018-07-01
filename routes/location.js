@@ -15,7 +15,7 @@ router.post('/', function(req,res) {
     console.log("User is requesting via coordinates");
     query = calc.findByCoord(req.body.coord);
   }
-  res.render('index', { syncTime: query.timeStamp, stations: query.listChunks });
+  res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
 });
 
 module.exports = router;
