@@ -6,10 +6,8 @@
 $('html').removeClass('no-js').addClass('js'); // Prove JavaScript support
 
 var locationObject = {
-  coord: {
-    lat: 41.834266, // IIT Mies Campus coordinates
-    long: -87.627628 // IIT Mies Campus coordinates
-  }
+  coordLat: 41.834266, // IIT Mies Campus coordinates
+  coordLong: -87.627628 // IIT Mies Campus coordinates
 };
 
 // console.log("Outermost scope",locationObject);
@@ -28,8 +26,8 @@ var getCoord = function() {
     // console.log(coord);
     // console.log(locationObject);
     // console.log(position); // debug output
-    locationObject.coord.lat = position.coords.latitude;
-    locationObject.coord.long = position.coords.longitude;
+    locationObject.coordLat = position.coords.latitude;
+    locationObject.coordLong = position.coords.longitude;
     // console.log(coord);
     // console.log("Found coordinates:", coord.lat, ",", coord.long);
     // return coord;
@@ -62,10 +60,11 @@ $('#zip-button').on('click', function(e) { // Send zip when button is clicked
 });
 
 $(document).ready(function() { // Send location when page loads
-  // console.log("Webpage loaded");
+  console.log("Webpage loaded");
   getCoord();
   // console.log(coord);
   // console.log(coord);
+  console.log("Sending over:", locationObject);
   $.post("/location", locationObject, function(data) {
     // console.log("POST succeeded");
     // console.log(data);
