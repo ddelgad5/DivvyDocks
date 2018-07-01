@@ -49,8 +49,9 @@ $('#zip-button').on('click', function(e) { // Send zip when button is clicked
   if (zip.toString().length == 5) {
     locationObject.zip = zip;
     $.post("/location", locationObject, function(data) {
-      // console.log("POST succeeded");
+      console.log("POST succeeded");
       // console.log(data);
+      $('#stationTable').html(data);
     });
   }
   else {
@@ -64,9 +65,11 @@ $(document).ready(function() { // Send location when page loads
   getCoord();
   // console.log(coord);
   // console.log(coord);
-  console.log("Sending over:", locationObject);
+  // console.log("Sending over:", locationObject);
   $.post("/location", locationObject, function(data) {
-    // console.log("POST succeeded");
+    console.log("POST succeeded");
     // console.log(data);
+    $('#stationTable').html(data);
+    // window.location.replace("/location");
   }); // Fetch page with coordinates
 });
