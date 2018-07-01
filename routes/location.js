@@ -11,32 +11,31 @@ const options = {
   json: true
 };
 
-router.post('/', function(req,res) {
+router.all('/', function(req,res) {
   console.log("POST recieved");
-  console.log(req.body);
-  let locationData = req.body;
-  console.log("Zip:", locationData.zip);
-  console.log("Lat:", locationData.coordLat);
-  console.log("Long:", locationData.coordLong);
-  if (locationData.zip) {
-    console.log("User is requesting via zip");
-    let query = calc.findByZip(locationData);
-    console.log("Query complete");
-  }
-  else if (locationData.coordLong && locationData.coordLat) {
-    console.log("User is requesting via coordinates");
-    let query = calc.findByCoord(locationData);
-    console.log("Query complete");
-  }
-  else {
-    console.log("Something went wrong");
-    // Render invalid data
-  }
-  console.log("All location calculations complete");
-  // console.log("Data to be rendered:", query);
-  // res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
-  console.log("Data to be rendered:", query);
-  res.render('index');
+  rpn(options).then(function(results) {
+    let locationData;
+    if (req.body) {
+      locationData = req.body;
+    }
+    else {
+      locationData = calc.getCoord();
+    }
+    let query;
+    if (locationData.zip) {
+      console.log("User is requesting via zip");
+      query = calc.findByZip(results, locationData);
+    }
+    else if (locationData.coordLong && locationData.coordLat) {
+      console.log("User is requesting via coordinates");
+      query = calc.findByCoord(results, locationData);
+    }
+    else {
+      console.log("Something went wrong");
+      // Render invalid data
+    }
+    res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
+  });
 });
 
 module.exports = router;
