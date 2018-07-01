@@ -14,7 +14,7 @@ html.no-js(lang='en-US')
       form(method='POST' action='/location')
         input(type='number' id='zip-box' name='zip' placeholder='60616')
         input(type='submit' id='zip-button')
-      sub.last-time Last Update: None
+      div(id='stationTable')
     footer
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
     script(src='/javascripts/site.js')
