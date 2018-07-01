@@ -1,0 +1,40 @@
+doctype html
+html.no-js(lang='en-US')
+  head
+    title DivvyDocks
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1.0,shrink-to-fit=no')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Lato|Roboto', rel='stylesheet')
+  body
+    header
+      a(href='/')
+        h1 Divvy Docks
+    main
+      form(method='POST' action='/location')
+        input(type='number' id='zip-box' name='zip' placeholder='60616')
+        input(type='submit' id='zip-button')
+      sub.last-time Last Update: #{syncTime}
+      table.divvy
+        thead
+          tr#divvy-headers
+            th.name Station
+            th.empty Empty
+            th.taken Taken
+            th.total Total
+          tr#divvy-small
+            th Site
+            th E
+            th T
+            th A
+        tbody
+          for station in stations
+            tr
+              td.name
+                a(href='' + station.url) #{station.stationName}
+              td.empty #{station.availableDocks}
+              td.taken #{station.availableBikes}
+              td.total #{station.totalDocks}
+    footer
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='/javascripts/site.js')
