@@ -2,6 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const calc = require('../lib/calc.js');
+const rpn = require('request-promise-native');
+const options = {
+  url:"https://feeds.divvybikes.com/stations/stations.json",
+  headers: {
+    'User-Agent': 'Request-Promise'
+  },
+  json: true
+};
 
 router.post('/', function(req,res) {
   console.log("POST recieved");
