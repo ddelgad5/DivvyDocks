@@ -5,54 +5,71 @@
 /* eslint-disable */
 $('html').removeClass('no-js').addClass('js'); // Prove JavaScript support
 
-var locationObject = {
-  coordLat: 41.834266, // IIT Mies Campus coordinates
-  coordLong: -87.627628 // IIT Mies Campus coordinates
-};
 
 // console.log("Outermost scope",locationObject);
 var getCoord = function() {
   if (!navigator.geolocation) {
     console.log("Geolocation is not supported");
   }
-
+  // console.log("Getting coordinates");
   var options = {
     enableHighAccuracy: true,
     timeout: Infinity, // 3000 ms = 3.0 s
     maximumAge: 10000 // 10000 ms = 10 s
   };
 
-  function success(position) {
-    // console.log(coord);
-    // console.log(locationObject);
-    // console.log(position); // debug output
-    locationObject.coordLat = position.coords.latitude;
-    locationObject.coordLong = position.coords.longitude;
-    // console.log(coord);
-    // console.log("Found coordinates:", coord.lat, ",", coord.long);
-    // return coord;
-  }
+  // function success(position) {
+  //   console.log("Got new coordinates");
+  //   // console.log(coord);
+  //   // console.log(locationObject);
+  //   // console.log("Old position: ", locationObject); // debug output
+  //   var locationObject = {
+  //     coordLat: position.coords.latitude,
+  //     coordLong: position.coords.longitude
+  //   };
+  //   // console.log("New position: ", locationObject);
+  //   // console.log("Found coordinates:", coord.lat, ",", coord.long);
+  //   return locationObject;
+  // }
+
+  var success = function(position) {
+    // console.log("Got new coordinates");
+      // console.log(coord);
+      // console.log(locationObject);
+      // console.log("Old position: ", locationObject); // debug output
+      var locationObject = {
+        coordLat: position.coords.latitude,
+        coordLong: position.coords.longitude
+      };
+      // console.log("New position: ", locationObject);
+      // console.log("Found coordinates:", coord.lat, ",", coord.long);
+      // console.log(locationObject);
+      postLocation(locationObject);
+  };
 
   function error() {
     console.log("Something went wrong");
     console.log("Using IIT Coordinates");
+    var locationObject = {
+      coordLat: 41.834266, // IIT Mies Campus coordinates
+      coordLong: -87.627628 // IIT Mies Campus coordinates
+    };
+    postLocation(locationObject);
     // return coord;
   }
 
-  navigator.geolocation.getCurrentPosition(success, error, options);
+  navigator.geolocation.getCurrentPosition( success, error, options);
 }
 
 $('#zip-button').on('click', function(e) { // Send zip when button is clicked
   // console.log('Zip button clicked');
-  var zip = $('#zip-box').val();
+  var zipCode = $('#zip-box').val();
   // console.log(zip, zip.toString().length);
-  if (zip.toString().length == 5) {
-    locationObject.zip = zip;
-    $.post("/location", locationObject, function(data) {
-      console.log("POST succeeded");
-      // console.log(data);
-      $('#stationTable').html(data);
-    });
+  if (zipCode.toString().length == 5) {
+    var locationObject = {
+      zip: zipCode
+    };
+    postLocation(locationObject);
   }
   else {
     console.log("Invalid zip code");
@@ -61,15 +78,17 @@ $('#zip-button').on('click', function(e) { // Send zip when button is clicked
 });
 
 $(document).ready(function() { // Send location when page loads
-  console.log("Webpage loaded");
+  // console.log("Webpage loaded");
   getCoord();
-  // console.log(coord);
-  // console.log(coord);
+  // console.log(locationObject);
   // console.log("Sending over:", locationObject);
+});
+
+var postLocation = function(locationObject) {
   $.post("/location", locationObject, function(data) {
-    console.log("POST succeeded");
+    // console.log("POST succeeded");
     // console.log(data);
     $('#stationTable').html(data);
     // window.location.replace("/location");
   }); // Fetch page with coordinates
-});
+}
