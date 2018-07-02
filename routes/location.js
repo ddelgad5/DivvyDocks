@@ -11,7 +11,7 @@ const options = {
   json: true
 };
 
-router.all('/', function(req,res) {
+router.all('/', function(req, res) {
   // console.log("POST recieved");
   rpn(options).then(function(results) {
     let locationData;
@@ -33,7 +33,7 @@ router.all('/', function(req,res) {
     else {
       console.log("Something went wrong");
       // Render invalid data
-      console.log("Supposed to receive coordinates, but instead received this: \n",locationData);
+      console.log("Supposed to receive coordinates, but instead received this: \n", locationData);
     }
     // console.log(query.listChunks.length);
     if (query.listChunks.length === 0) {
@@ -41,7 +41,9 @@ router.all('/', function(req,res) {
       console.log("No stations found");
       res.render('noStation');
     }
-    else res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
+    else {
+      res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
+    }
   });
 });
 
