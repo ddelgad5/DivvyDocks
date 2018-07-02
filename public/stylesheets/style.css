@@ -153,6 +153,10 @@ form {
   width: calc(40% - 16px);
   height: 100%;
 }
+#zip-button:hover {
+  color: #ffffff;
+  background-color: #3db7e4;
+}
 
 /* Media Queries */
 @media screen and (min-width: 357px) {
