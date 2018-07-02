@@ -150,7 +150,7 @@ form {
   margin-left: 1rem;
 }
 #zip-button {
-  width: calc(40% - 16rem);
+  width: calc(40% - 1rem);
   height: 100%;
 }
 #zip-button:hover {
@@ -165,7 +165,7 @@ form {
   }
 }
 
-@media screen and (min-width: 11.28261rem) { /* 519/16 = 11.28261 */
+@media screen and (min-width: 32.4375rem) { /* 519/16 = 32.4375 */
   .name, form {
     width: 49.03661vw; /* 254.5/519 = .4903661 */
   }
