@@ -39,6 +39,7 @@ router.all('/', function(req,res) {
     if (query.listChunks.length === 0) {
       // Render "No stations found"
       console.log("No stations found");
+      res.render('noStation');
     }
     else res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
   });
