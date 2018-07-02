@@ -98,9 +98,9 @@ h2, thead {
 }
 
 /* Table styling */
-table {
+table { /* stylelint-disable-line */
   font-size: 1rem;
-  line-height: 24px;
+  line-height: 1.5rem; /* 24/16 = 1.5 */
   text-align: left;
 }
 
@@ -139,18 +139,18 @@ tr a {
 form {
   display: block;
   width: 100%;
-  height: 44px;
-  border: 1px;
+  height: 2.75rem; /* 44/16 = 2.75 */
+  border: 0.0625rem; /* 1/16 = 0.0625 */
   border-color: #3db7e4;
   border-style: solid;
 }
 #zip-box {
   width: 60%;
   height: 100%;
-  margin-left: 16px;
+  margin-left: 1rem;
 }
 #zip-button {
-  width: calc(40% - 16px);
+  width: calc(40% - 16rem);
   height: 100%;
 }
 #zip-button:hover {
@@ -159,19 +159,19 @@ form {
 }
 
 /* Media Queries */
-@media screen and (min-width: 357px) {
+@media screen and (min-width: 22.3125rem) { /* 357/16 = 22.3125 */
   body { /* stylelint-disable-line */
     padding-top: 4.27273rem; /* 72/22 = 3.27273 */
   }
 }
 
-@media screen and (min-width: 519px) {
+@media screen and (min-width: 11.28261rem) { /* 519/16 = 11.28261 */
   .name, form {
     width: 49.03661vw; /* 254.5/519 = .4903661 */
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 46.875rem) { /* 750/16 = 46.875 */
   .name, form {
     width: 50.66666vw;  /* 380/750 = 0.5066666 */
   }
