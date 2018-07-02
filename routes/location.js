@@ -12,7 +12,7 @@ const options = {
 };
 
 router.all('/', function(req,res) {
-  console.log("POST recieved");
+  // console.log("POST recieved");
   rpn(options).then(function(results) {
     let locationData;
     if (req.body) {
@@ -23,18 +23,24 @@ router.all('/', function(req,res) {
     }
     let query;
     if (locationData.zip) {
-      console.log("User is requesting via zip");
+      // console.log("User is requesting via zip");
       query = calc.findByZip(results, locationData);
     }
     else if (locationData.coordLong && locationData.coordLat) {
-      console.log("User is requesting via coordinates");
+      // console.log("User is requesting via coordinates");
       query = calc.findByCoord(results, locationData);
     }
     else {
       console.log("Something went wrong");
       // Render invalid data
+      console.log("Supposed to receive coordinates, but instead received this: \n",locationData);
     }
-    res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
+    // console.log(query.listChunks.length);
+    if (query.listChunks.length === 0) {
+      // Render "No stations found"
+      console.log("No stations found");
+    }
+    else res.render('locations', { syncTime: query.timeStamp, stations: query.listChunks });
   });
 });
 
