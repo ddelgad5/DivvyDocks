@@ -60,7 +60,7 @@ html { /* stylelint-disable-line */
 }
 
 body { /* stylelint-disable-line */
-  padding-top: 6.54545rem; /* 144/22 = 6.54545 */
+  padding-top: 7.54545rem; /* 166/22 = 7.54545 */
 }
 
 h1 {
@@ -136,21 +136,39 @@ tr a {
   text-decoration: none;
   color: inherit;
 }
+form {
+  display: block;
+  width: 100%;
+  height: 44px;
+  border: 1px;
+  border-color: #3db7e4;
+  border-style: solid;
+}
+#zip-box {
+  width: 60%;
+  height: 100%;
+  margin-left: 16px;
+}
+#zip-button {
+  width: calc(40% - 16px);
+  height: 100%;
+}
+
 /* Media Queries */
 @media screen and (min-width: 357px) {
   body { /* stylelint-disable-line */
-    padding-top: 3.27273rem; /* 72/22 = 3.27273 */
+    padding-top: 4.27273rem; /* 72/22 = 3.27273 */
   }
 }
 
 @media screen and (min-width: 519px) {
-  .name {
-    width: 49.03661vw;
+  .name, form {
+    width: 49.03661vw; /* 254.5/519 = .4903661 */
   }
 }
 
 @media screen and (min-width: 750px) {
-  .name {
-    width: 380px;
+  .name, form {
+    width: 50.66666vw;  /* 380/750 = 0.5066666 */
   }
 }
